@@ -24,29 +24,15 @@ function App() {
 
   return (
     <div className="app-container">
-      <div
-      className="logo-style"
-      >
-        <div
-          id="logo"
-          className="icon-style"
-        >
-          <img
-            src={icon}
-            alt="equipo1"
-            className="icon-icon"
-          />
+      <div className="logo-style">
+        <div id="logo" className="icon-style">
+          <img src={icon} alt="equipo1" className="icon-icon" />
           <h1 style={{ color: "white", margin: "20px 0 0 20px" }}>
             Natural <br></br>Track
           </h1>
         </div>
-        <div
-          className="main-title"
-        >
-          <h2
-            className="main-h2-title"
-            id="main title"
-          >
+        <div className="main-title">
+          <h2 className="main-h2-title" id="main title">
             Natural Disasters Report for Everyone
           </h2>
         </div>
@@ -60,10 +46,7 @@ function App() {
         <h3 style={{ marginBottom: "20px", color: "white" }}>
           ¿Qué deseas Saber?
         </h3>
-        <div
-          id="lupa y barra"
-          className="lupa-barra"
-        >
+        <div id="lupa y barra" className="lupa-barra">
           <Searcher
             prompt={prompt}
             handlePromptChange={handlePromptChange}
@@ -71,14 +54,21 @@ function App() {
           />
         </div>
       </div>
-      <div
-        id="mapa"
-       className="mapa"
-      >
+      <div id="mapa" className="mapa">
         <img
           src={map}
           alt="mapamundi"
           style={{ height: "600px", width: "600px" }}
+        />
+      </div>
+
+      <div id="imagen-reporte" className="embebido">
+        <iframe
+          title="holi"
+          width="90%"
+          height="2000"
+          frameborder="0"
+          src="https://app.hex.tech/2f4305db-d567-4b07-8c33-652d7eb206c5/app/ed7149ad-9ca0-4662-a838-a0ec735ec38b/latest?embedded=true"
         />
       </div>
     </div>
