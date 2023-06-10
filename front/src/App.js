@@ -7,7 +7,7 @@ import axios from 'axios';
 
 function App() {
   const [prompt, setPrompt] = useState("ej: incendios en ...");
-  const [response, setRespose] = useState(null);
+  const [response, setResponse] = useState(null);
 
   const handlePromptChange = (event) => {
     console.log(event.target.value);
