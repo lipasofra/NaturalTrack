@@ -5,6 +5,7 @@ __pycache__/
 
 # C extensions
 *.so
+.env
 
 # Distribution / packaging
 .Python
@@ -60,6 +61,9 @@ cover/
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
+
+.streamlit
+.env
 
 # Flask stuff:
 instance/
