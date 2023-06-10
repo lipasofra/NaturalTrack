@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 104.5 109">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #fff;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+
+      .cls-2 {
+        fill: #58f100;
+        stroke: url(#Degradado_sin_nombre_9);
+      }
+
+      .cls-3 {
+        fill: #f4fe8b;
+      }
+
+      .cls-4 {
+        fill: #38efff;
+      }
+
+      .cls-5 {
+        fill: #00d0fe;
+      }
+
+      .cls-6 {
+        fill: #ff2301;
+      }
+    </style>
+    <radialGradient id="Degradado_sin_nombre_9" data-name="Degradado sin nombre 9" cx="53.34" cy="54.4" fx="53.34" fy="54.4" r="50.72" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".62" stop-color="#444442"/>
+      <stop offset=".65" stop-color="#696967"/>
+      <stop offset="1" stop-color="#000"/>
+    </radialGradient>
+  </defs>
+  <ellipse class="cls-2" cx="53.34" cy="54.4" rx="48.3" ry="50.12"/>
+  <g>
+    <path class="cls-6" d="M4.76,54.12H15.96c0-21.6,17.29-39.12,38.64-39.2V4.28c-27.53,0-49.84,22.31-49.84,49.84Z"/>
+    <path class="cls-5" d="M38.64,54.12h15.96s0-15.96,0-15.96c-8.26,.07-15.05,7.02-15.96,15.96Z"/>
+    <path class="cls-4" d="M27.5,54.12h11.23c.9-7.99,7.65-14.22,15.87-14.28v-13.33c-14.54,1.28-26.08,12.99-27.1,27.6Z"/>
+    <path class="cls-3" d="M15.95,54.12h11.55c1.02-14.61,12.56-26.32,27.09-27.6V14.92c-21.36,.08-38.65,17.6-38.65,39.2Z"/>
+  </g>
+  <ellipse class="cls-1" cx="53.34" cy="54.4" rx="48.3" ry="50.12"/>
+</svg>
