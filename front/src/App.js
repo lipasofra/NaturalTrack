@@ -3,6 +3,7 @@ import { useState } from "react";
 import Searcher from "./components/Searcher";
 import icon from "./icon.svg";
 import map from "./map.svg";
+import axios from 'axios';
 
 function App() {
   const [prompt, setPrompt] = useState("ej: incendios en ...");
@@ -14,16 +15,17 @@ function App() {
     console.log(prompt);
   };
 
-  const sendPost = () => {
+  const sendPost = async () => {
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ query: prompt }),
     };
-    fetch("http://127.0.0.1:8000/api/v1.0/disasters/", requestOptions).then(
-      (response) => {
-        console.log(response);
-        });
+    const response = await axios.post("http://18.217.99.4:8000/api/v1.0/disasters/", requestOptions)
+
+    console.log(response)
+
+      }
 
   return (
     <div className="app-container">
@@ -57,7 +59,7 @@ function App() {
           />
         </div>
       </div>
-      {response ? 
+      {!response ? 
       <div id="mapa" className="mapa">
         <img
           src={map}
