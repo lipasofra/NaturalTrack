@@ -25,52 +25,27 @@ function App() {
   return (
     <div className="app-container">
       <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-        }}
+      className="logo-style"
       >
         <div
           id="logo"
-          style={{
-            display: "flex",
-            alignItems: "flex-start",
-            justifyContent: "flex-start",
-          }}
+          className="icon-style"
         >
           <img
             src={icon}
             alt="equipo1"
-            style={{
-              marginRight: "10px",
-              marginTop: "30px",
-              height: "100px",
-              width: "100px",
-            }}
+            className="icon-icon"
           />
           <h1 style={{ color: "white", margin: "20px 0 0 20px" }}>
             Natural <br></br>Track
           </h1>
         </div>
         <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginLeft: "40px",
-          }}
+          className="main-title"
         >
           <h2
-            className=""
+            className="main-h2-title"
             id="main title"
-            style={{
-              textAlign: "center",
-              fontSize: "20px",
-              fontStyle: "italic",
-              fontWeight: "bold",
-              paddingTop: "60px",
-              marginBottom: "40px",
-              color: "white",
-            }}
           >
             Natural Disasters Report for Everyone
           </h2>
@@ -87,12 +62,7 @@ function App() {
         </h3>
         <div
           id="lupa y barra"
-          className="flex"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
+          className="lupa-barra"
         >
           <Searcher
             prompt={prompt}
@@ -103,12 +73,7 @@ function App() {
       </div>
       <div
         id="mapa"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          margin: "30px",
-        }}
+       className="mapa"
       >
         <img
           src={map}

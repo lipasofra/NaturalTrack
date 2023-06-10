@@ -11,9 +11,58 @@ html,body, #root {
   pointer-events: none;
 }
 
-.logo-style{
-  
+.icon-style {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
+
+.logo-style{
+  display:flex;
+  align-items: center;
+}
+
+.icon-icon{
+  margin-right: 10px;
+  margin-top: 30px;
+  height: 100px;
+  width: 100px;
+}
+
+.main-title {
+  display: flex;
+  justify-content: center;
+  margin-left: 40px;
+}
+
+.lupa-barra {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mapa{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px;
+}
+
+
+.main-h2-title {
+  text-align: center;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold;
+  padding-top: 60px;
+  margin-bottom: 40px;
+  color: white;
+}
+
+
+
+
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
