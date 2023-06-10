@@ -8,7 +8,7 @@ import re
 load_dotenv(find_dotenv())
 
 
-def run_query(query, openai_key=None, csv_path='sample_data/disasters_1970_2021.csv'):
+def run_query(query, openai_key=None, csv_path='/Users/andres/Documents/programacion/codefest/Equipo-1/backend/disasters/1900.csv'):
     llm = OpenAI(
         openai_api_key=openai_key if openai_key is not None else os.getenv("OPENAI_API_KEY"),
         model_name="gpt-3.5-turbo",
@@ -40,12 +40,10 @@ def run_query(query, openai_key=None, csv_path='sample_data/disasters_1970_2021.
     the answer the reseacher though of was best, 2) improving that answer, and 3) returning the improved answer in full. \
     Let's work this out in a step by step way to be sure we have the right answer. \
     At the end, return a user friendly answer as per the initial question following the result result of step 3. \
-    Display the pyspark/pandas code used to transform and process the data, \
-    and show a sample code to plot the resulting prediction plus the initial dataset.
-    """
+    """    
 
     try:
-        response= agent.run(query)
+        response= agent.run(prompt_template.format(prompt=query))
         
     except Exception as e:
              response = str(e)
