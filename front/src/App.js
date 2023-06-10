@@ -6,6 +6,7 @@ import map from "./map.svg";
 
 function App() {
   const [prompt, setPrompt] = useState("ej: incendios en ...");
+  const [response, setRespose] = useState(null);
 
   const handlePromptChange = (event) => {
     console.log(event.target.value);
@@ -19,8 +20,10 @@ function App() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ query: prompt }),
     };
-    fetch("http://localhost:5000/predict", requestOptions);
-  };
+    fetch("http://127.0.0.1:8000/api/v1.0/disasters/", requestOptions).then(
+      (response) => {
+        console.log(response);
+        });
 
   return (
     <div className="app-container">
@@ -54,6 +57,7 @@ function App() {
           />
         </div>
       </div>
+      {response ? 
       <div id="mapa" className="mapa">
         <img
           src={map}
@@ -61,7 +65,11 @@ function App() {
           style={{ height: "600px", width: "600px" }}
         />
       </div>
-
+      : 
+      <div id="mapa" className="mapa">
+        <p>{response}</p>
+      </div>
+  }
       <div id="imagen-reporte" className="embebido">
         <iframe
           title="holi"
