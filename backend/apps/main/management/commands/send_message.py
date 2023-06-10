@@ -4,14 +4,12 @@ from pprint import pprint
 from django.contrib.auth.models import Group, Permission
 import csv
 from apps.main.models import disasters19002021, disasters19702021, Disasters
-from utils import read_csv
 from pprint import pprint
 from heyoo import WhatsApp
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from django.conf import settings
-from utils import render_output_filtered
 from disaster_explorer import query_agent
 import random
 

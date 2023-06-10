@@ -27,20 +27,34 @@ def run_query(query, openai_key=None, csv_path='/Users/andres/Documents/programa
         verbose=True,
     )
 
+    # prompt_template = """
+    # You are a helpful assistant that that can answer questions \
+    # in an a step by step way, making sure to have the right answer. \
+    # Let's work out the following problem: \
+        
+    # {prompt}. 
+    # Now, as a researcher, you are tasked with investigating the provided response options, \
+    # list the flaws and faulty logic, as well as the correct statements of each answer option.\
+    # Let's work out step in a step by step way to be sure we have all the errors and correct statements. \
+    # Then, after discussing the reseached options, as a resolver, you are tasked with 1) finding which of \
+    # the answer the reseacher though of was best, 2) improving that answer, and 3) returning the improved answer in full. \
+    # Let's work this out in a step by step way to be sure we have the right answer. \
+    # At the end, return a user friendly answer as per the initial question following the result result of step 3. \
+    # """    
+
     prompt_template = """
     You are a helpful assistant that that can answer questions \
     in an a step by step way, making sure to have the right answer. \
     Let's work out the following problem: \
+    
+    you will give the response to the following question and the response have to be like if you were talking to someone and you want to give \
+    information about what he is asking, thi sinformation can be as a newsletter way: \
         
     {prompt}. 
-    Now, as a researcher, you are tasked with investigating the provided response options, \
-    list the flaws and faulty logic, as well as the correct statements of each answer option.\
-    Let's work out step in a step by step way to be sure we have all the errors and correct statements. \
-    Then, after discussing the reseached options, as a resolver, you are tasked with 1) finding which of \
-    the answer the reseacher though of was best, 2) improving that answer, and 3) returning the improved answer in full. \
-    Let's work this out in a step by step way to be sure we have the right answer. \
-    At the end, return a user friendly answer as per the initial question following the result result of step 3. \
+    
     """    
+
+    
 
     try:
         response= agent.run(prompt_template.format(prompt=query))

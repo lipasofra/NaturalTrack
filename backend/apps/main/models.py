@@ -148,3 +148,9 @@ class Disasters(models.Model):
     admin2_code = models.TextField(null=True, blank=True)
     geo_locations = models.TextField(null=True, blank=True)
     reconstruction_costs = models.IntegerField(default=0)
+
+
+class UsersEmails():
+    id = models.AutoField(primary_key=True)
+    email = models.CharField(max_length=255, null=True, blank=True)
+    date_created = models.DateTimeField(auto_now_add=True)

@@ -5,3 +5,6 @@ class DisasterListSerializer(serializers.Serializer):
 
 class DisasterQuerySerializer(serializers.Serializer):
     query = serializers.CharField(max_length=10000)
+
+class DisasterEmailSerializer(serializers.Serializer):
+    email = serializers.CharField(max_length=10000)
