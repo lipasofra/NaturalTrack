@@ -39,7 +39,12 @@ class DisasterEmail(generics.ListCreateAPIView):
         serializer.is_valid(raise_exception=True)
         email = serializer.validated_data['email']
 
-        self.send_message(email)
+        response = self.send_message(email)
+
+        if response is False:
+            return Response('email sent', status=status.HTTP_200_OK)
+
+        return Response('email not sent', status=status.HTTP_400_BAD_REQUEST) 
     
     def send_message(self, email):
         fail = False
@@ -71,7 +76,8 @@ class DisasterEmail(generics.ListCreateAPIView):
             smtp_server.login(settings.EMAIL_HOST_USER, settings.EMAIL_PASSWORD)  # Replace with your email login credentials
             smtp_server.send_message(email)
             smtp_server.quit()
-            return Response('Email sent', status=status.HTTP_200_OK)
+            return False
         except Exception as e:
             print(f'Error sending email: {e}')
-            return Response('Error sending email', status=status.HTTP_400_BAD_REQUEST)
+            return True
+        
