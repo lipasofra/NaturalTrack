@@ -2,7 +2,6 @@ from django.shortcuts import get_object_or_404
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework import status
-from utils import read_csv
 from apps.main.serializers import DisasterListSerializer, DisasterQuerySerializer
 from disaster_explorer import query_agent
 import json
