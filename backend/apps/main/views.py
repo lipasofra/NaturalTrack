@@ -9,7 +9,6 @@ import json
 
 
 class DisasterList(generics.ListCreateAPIView):
-    data = read_csv.read_csv_1900()
     serializer_class = DisasterListSerializer
     query_serializer_class = DisasterQuerySerializer
     

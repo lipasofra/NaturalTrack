@@ -21,5 +21,4 @@ api_version = 'v1.0'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path(f'api/{api_version}/', include('apps.main.urls')),
-    path(f'', include('apps.front.urls')),
 ]
