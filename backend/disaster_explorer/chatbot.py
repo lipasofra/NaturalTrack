@@ -1,6 +1,8 @@
 import openai
 import streamlit as st
 from streamlit_chat import message
+import plotly.express as px
+import pandas as pd
 
 with st.sidebar:
     openai_api_key = st.text_input('OpenAI API Key',key='chatbot_api_key')
@@ -11,6 +13,16 @@ st.title("💬 Streamlit GPT")
 #openai.api_key = st.secrets.openai_api_key
 if "messages" not in st.session_state:
     st.session_state["messages"] = [{"role": "assistant", "content": "How can I help you?"}]
+
+csv_path='sample_data/disasters_1970_2021.csv'
+
+df = pd.read_csv(csv_path)
+df = df[df['Disaster Type'] == 'Earthquake']
+fig = px.scatter_mapbox(df, lat="Latitude", lon="Longitude", zoom=3)
+
+fig.update_layout(mapbox_style="open-street-map")
+fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+st.plotly_chart(fig)
 
 with st.form("chat_input", clear_on_submit=True):
     a, b = st.columns([4, 1])
