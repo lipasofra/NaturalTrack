@@ -9,6 +9,7 @@ function App() {
   const [prompt, setPrompt] = useState("ej: incendios en ...");
   const [response, setResponse] = useState(null);
   const data= { query: prompt }
+  const [email, setEmail] = useState("ej: email@email.com");
 
   const handlePromptChange = (event) => {
     console.log(event.target.value);
@@ -16,7 +17,15 @@ function App() {
     console.log(prompt);
   };
 
+  const handleEmailChange = (event) => {
+    console.log(event.target.value);
+    setEmail(event.target.value);
+    console.log(email);
+  };
+
   const url = 'http://127.0.0.1:8000/api/v1.0/disasters/';
+  const url2 = 'http://127.0.0.1:8000/api/v1.0/disasters/email/';
+
 
 const sendPost = async () => {
   try {
@@ -32,6 +41,25 @@ const sendPost = async () => {
     console.log(data);
     setResponse(data);
     setResponse(data);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+};
+
+const sendEmail = async () => {
+  try {
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email }), // Replace 'hello' with your desired query parameter value
+    };
+
+    const response = await fetch(url2, requestOptions);
+    const data2 = await response.json();
+
+    console.log(data2);
+    setEmail(data2);
+    setEmail(data2);
   } catch (error) {
     console.error('Error:', error);
   }
@@ -81,15 +109,25 @@ const sendPost = async () => {
       <div id="mapa" className="mapa" style={{ marginBottom: "200px" }}>
         <p style={{ marginTop: "200px" }}>{response}</p>
       </div>
-  }
-  {/* {response ? 
-  <></>:
-  <div
-  style={{ height: "600px", width: "600px" }}> 
-    
-     </div>
+      }
+  
 
-  } */}
+      <div
+        id="buscador"
+        class="container text-center"
+        style={{ marginTop: "-97px", marginBottom: "-67px" }}
+      >
+        <h5 style={{ marginBottom: "20px", color: "white" }}>
+          Ingresa tu correo para recibir notificaciones
+        </h5>
+        <div id="lupa y barra" className="lupa-barra">
+          <Searcher
+            prompt={prompt}
+            handlePromptChange={handleEmailChange}
+            sendPost={sendEmail}
+          />
+        </div>
+        </div>
       <div id="imagen-reporte" className="embebido">
         <iframe
           title="holi"
