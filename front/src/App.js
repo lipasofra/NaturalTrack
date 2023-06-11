@@ -8,6 +8,7 @@ import axios from 'axios';
 function App() {
   const [prompt, setPrompt] = useState("ej: incendios en ...");
   const [response, setResponse] = useState(null);
+  const data= { query: prompt }
 
   const handlePromptChange = (event) => {
     console.log(event.target.value);
@@ -15,17 +16,26 @@ function App() {
     console.log(prompt);
   };
 
-  const sendPost = async () => {
+  const url = 'http://127.0.0.1:8000/api/v1.0/disasters/';
+
+const sendPost = async () => {
+  try {
     const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ query: prompt }),
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query: prompt }), // Replace 'hello' with your desired query parameter value
     };
-    const response = await axios.post("http://18.217.99.4:8000/api/v1.0/disasters/", requestOptions)
 
-    console.log(response)
+    const response = await fetch(url, requestOptions);
+    const data = await response.json();
 
-      }
+    console.log(data);
+    setResponse(data);
+    setResponse(data);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+};
 
   return (
     <div className="app-container">
@@ -69,8 +79,16 @@ function App() {
       </div>
       : 
       <div id="mapa" className="mapa">
-        <p>{response}</p>
+        <p style={{ marginTop: "200px" }}>{response}</p>
       </div>
+  }
+  {response ? 
+  <></>:
+  <div
+  style={{ height: "600px", width: "600px" }}> 
+    
+     </div>
+
   }
       <div id="imagen-reporte" className="embebido">
         <iframe
