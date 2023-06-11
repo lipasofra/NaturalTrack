@@ -57,7 +57,7 @@ def run_query(query, openai_key=None, csv_path='/home/lipasofra/PROYECTOS/Equipo
     
 
     try:
-        response= agent.run(prompt_template.format(prompt=query))
+        response= agent.run(query)#prompt_template.format(prompt=query))
         
     except Exception as e:
              response = str(e)

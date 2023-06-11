@@ -78,18 +78,18 @@ const sendPost = async () => {
         />
       </div>
       : 
-      <div id="mapa" className="mapa">
+      <div id="mapa" className="mapa" style={{ marginBottom: "200px" }}>
         <p style={{ marginTop: "200px" }}>{response}</p>
       </div>
   }
-  {response ? 
+  {/* {response ? 
   <></>:
   <div
   style={{ height: "600px", width: "600px" }}> 
     
      </div>
 
-  }
+  } */}
       <div id="imagen-reporte" className="embebido">
         <iframe
           title="holi"
