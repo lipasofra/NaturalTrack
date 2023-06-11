@@ -51,7 +51,7 @@ class DisasterEmail(generics.ListCreateAPIView):
         from_email = settings.EMAIL_HOST_USER
         to_email = email
 
-        years = [1900, 2021]
+        years = [2008, 2008]
         random_year = random.randint(years[0], years[1])
 
         message = query_agent.run_query(
