@@ -8,11 +8,7 @@ import re
 load_dotenv(find_dotenv())
 
 
-<<<<<<< HEAD
-def run_query(query, openai_key=None, csv_path='/home/lipasofra/PROYECTOS/Equipo-1/backend/disasters/1900.csv'):
-=======
-def run_query(query, openai_key=None, csv_path='/Users/broomva/Documents/GitHub/Equipo-1/backend/disasters/1900.csv'):
->>>>>>> bdcef36 (local mods)
+def run_query(query, openai_key=None, csv_path='../disasters/1900.csv'):
     llm = OpenAI(
         openai_api_key=openai_key if openai_key is not None else os.getenv("OPENAI_API_KEY"),
         model_name="gpt-3.5-turbo",

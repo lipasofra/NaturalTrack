@@ -8,6 +8,7 @@ from django.conf import settings
 import random
 import json
 import smtplib
+import os
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
@@ -30,6 +31,9 @@ class DisasterList(generics.ListCreateAPIView):
 class DisasterEmail(generics.ListCreateAPIView):
     serializer_class = DisasterListSerializer
     query_serializer_class = DisasterQuerySerializer
+
+    
+
     
     def get(self, request, format=None):
         return Response('api email is ready', status=status.HTTP_200_OK)
@@ -47,11 +51,14 @@ class DisasterEmail(generics.ListCreateAPIView):
         return Response('email not sent', status=status.HTTP_400_BAD_REQUEST) 
     
     def send_message(self, email):
+        email_host_user= os.getenv("EMAIL_HOST_USER")
+        email_password= os.getenv("EMAIL_PASSWORD")
+        
         fail = False
-        from_email = settings.EMAIL_HOST_USER
+        from_email = email_host_user
         to_email = email
 
-        years = [2008, 2008]
+        years = [1900, 2008]
         random_year = random.randint(years[0], years[1])
 
         message = query_agent.run_query(
@@ -73,7 +80,7 @@ class DisasterEmail(generics.ListCreateAPIView):
             # Connect to the SMTP server and send the email
             smtp_server = smtplib.SMTP('smtp.gmail.com', 587)  # Replace with your SMTP server details
             smtp_server.starttls()
-            smtp_server.login(settings.EMAIL_HOST_USER, settings.EMAIL_PASSWORD)  # Replace with your email login credentials
+            smtp_server.login(email_host_user, email_password)  # Replace with your email login credentials
             smtp_server.send_message(email)
             smtp_server.quit()
             return False

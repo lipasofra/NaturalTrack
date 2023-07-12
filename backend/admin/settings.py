@@ -136,11 +136,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-EMAIL_HOST_USER='andres.jazz11@gmail.com'
-EMAIL_PASSWORD='cwovhhkmnkkiipqr'
-EMAIL_RECEIVER='edissonduarte94@gmail.com'
-
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_METHODS = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS']
 CORS_ALLOW_HEADERS = ['*']
