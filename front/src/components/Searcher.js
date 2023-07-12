@@ -1,9 +1,7 @@
 import TextField from "@mui/material/TextField";
-import Button from '@mui/material/Button';
+import Button from "@mui/material/Button";
 
 const Searcher = (props) => {
-
-    
   return (
     <>
       <svg
@@ -26,9 +24,15 @@ const Searcher = (props) => {
         // value={props.prompt}
         onChange={props.handlePromptChange}
       />
-      <Button variant="text" style={{color:"white"}} onClick={props.sendPost}>Buscar</Button>
+      <Button
+        variant="text"
+        style={{ color: "white" }}
+        onClick={props.sendPost}
+      >
+        Buscar
+      </Button>
     </>
   );
 };
 
-export default Searcher
+export default Searcher;

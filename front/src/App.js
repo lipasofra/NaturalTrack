@@ -3,67 +3,62 @@ import { useState } from "react";
 import Searcher from "./components/Searcher";
 import icon from "./icon.svg";
 import map from "./map.svg";
-import axios from 'axios';
+import axios from "axios";
 
 function App() {
   const [prompt, setPrompt] = useState("ej: incendios en ...");
   const [response, setResponse] = useState(null);
-  const data= { query: prompt }
+  const data = { query: prompt };
   const [email, setEmail] = useState("ej: email@email.com");
 
   const handlePromptChange = (event) => {
     console.log(event.target.value);
     setPrompt(event.target.value);
-    console.log(prompt);
   };
 
   const handleEmailChange = (event) => {
     console.log(event.target.value);
     setEmail(event.target.value);
-    console.log(email);
   };
 
-  const url = 'http://127.0.0.1:8000/api/v1.0/disasters/';
-  const url2 = 'http://127.0.0.1:8000/api/v1.0/disasters/email/';
+  const url_api = "http://127.0.0.1:8000/api/v1.0/disasters/";
+  const url_email = "http://127.0.0.1:8000/api/v1.0/disasters/email/";
 
+  const sendPost = async () => {
+    try {
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: prompt }),
+      };
 
-const sendPost = async () => {
-  try {
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ query: prompt }), // Replace 'hello' with your desired query parameter value
-    };
+      const response = await fetch(url_api, requestOptions);
+      const data = await response.json();
 
-    const response = await fetch(url, requestOptions);
-    const data = await response.json();
+      setResponse(data);
+      setResponse(data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
 
-    console.log(data);
-    setResponse(data);
-    setResponse(data);
-  } catch (error) {
-    console.error('Error:', error);
-  }
-};
+  const sendEmail = async () => {
+    try {
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email }),
+      };
 
-const sendEmail = async () => {
-  try {
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: email }), // Replace 'hello' with your desired query parameter value
-    };
+      const response = await fetch(url_email, requestOptions);
+      const data2 = await response.json();
 
-    const response = await fetch(url2, requestOptions);
-    const data2 = await response.json();
-
-    console.log(data2);
-    setEmail(data2);
-    setEmail(data2);
-  } catch (error) {
-    console.error('Error:', error);
-  }
-};
+      setEmail(data2);
+      setEmail(data2);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
 
   return (
     <div className="app-container">
@@ -97,20 +92,19 @@ const sendEmail = async () => {
           />
         </div>
       </div>
-      {!response ? 
-      <div id="mapa" className="mapa">
-        <img
-          src={map}
-          alt="mapamundi"
-          style={{ height: "600px", width: "600px" }}
-        />
-      </div>
-      : 
-      <div id="mapa" className="mapa" style={{ marginBottom: "200px" }}>
-        <p style={{ marginTop: "200px" }}>{response}</p>
-      </div>
-      }
-  
+      {!response ? (
+        <div id="mapa" className="mapa">
+          <img
+            src={map}
+            alt="mapamundi"
+            style={{ height: "600px", width: "600px" }}
+          />
+        </div>
+      ) : (
+        <div id="mapa" className="mapa" style={{ marginBottom: "200px" }}>
+          <p style={{ marginTop: "200px" }}>{response}</p>
+        </div>
+      )}
 
       <div
         id="buscador"
@@ -127,7 +121,7 @@ const sendEmail = async () => {
             sendPost={sendEmail}
           />
         </div>
-        </div>
+      </div>
       <div id="imagen-reporte" className="embebido">
         <iframe
           title="holi"
