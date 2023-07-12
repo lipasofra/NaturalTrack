@@ -89,6 +89,7 @@ function App() {
             prompt={prompt}
             handlePromptChange={handlePromptChange}
             sendPost={sendPost}
+            buttonText="Buscar"
           />
         </div>
       </div>
@@ -119,6 +120,7 @@ function App() {
             prompt={prompt}
             handlePromptChange={handleEmailChange}
             sendPost={sendEmail}
+            buttonText="Enviar"
           />
         </div>
       </div>

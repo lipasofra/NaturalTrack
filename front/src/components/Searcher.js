@@ -24,12 +24,13 @@ const Searcher = (props) => {
         // value={props.prompt}
         onChange={props.handlePromptChange}
       />
+
       <Button
         variant="text"
         style={{ color: "white" }}
         onClick={props.sendPost}
       >
-        Buscar
+        {props.buttonText}
       </Button>
     </>
   );
