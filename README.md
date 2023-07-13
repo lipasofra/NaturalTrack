@@ -17,6 +17,8 @@ Is divided in two categories:
 * This section brings another text field where you can enter your email to obtain a random fact about global disasters in your email
 2. For more especialized users who seek in-depth insights into data analysis. This section bring an embed tool with filters and graphs about globa natural disasters (same data based of the first section).
 * This section also has a filter integrated with AI, where the user can type a prompt about data.
+
+Can be found video and pictures of the app in [here](https://drive.google.com/drive/folders/1z057wunoBALP0EGrnFtPyDk2zP3eaov2?usp=sharing)
 ## Technologies
 This app uses React.js in frontend and Python in backend. Both communicates with the backend API (so first section could be used directly from API). <br />
 The embed is build in HEX. And can be found in [here](https://app.hex.tech/2f4305db-d567-4b07-8c33-652d7eb206c5/app/ed7149ad-9ca0-4662-a838-a0ec735ec38b/latest). <br />
